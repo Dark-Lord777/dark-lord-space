@@ -3,6 +3,7 @@ import Navbar from './components/Navbar' //navigation/ also do navigation bar
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import Licenses from './pages/Licenses'
+import About from './pages/About.jsx'
 
 function App() {
   return (
