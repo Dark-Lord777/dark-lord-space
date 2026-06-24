@@ -69,3 +69,21 @@ hr {
   margin: 0 auto;
   padding: 20px;
 }
+
+@media (max-width: 760px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: flex !important;
+  }
+}
+
+@media (min-width: 760px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+  .mobile-nav {
+    display: none !important;
+  }
+}
