@@ -6,7 +6,7 @@ function MarkdownPage({ content }) {
     <div className="container">
       <ReactMarkdown
         components={{
-          a: ({ href, children }) => (
+          a: ({ href, children }) => {
             if (href && href.startsWith('/')) {
               return <Link to={href}>{children}</Link>
             }
@@ -15,7 +15,7 @@ function MarkdownPage({ content }) {
               {children}
             </a> 
             }
-          ),
+        },
           code: ({ children }) => (
             <code style={{
               background: '#1a1a2e',
