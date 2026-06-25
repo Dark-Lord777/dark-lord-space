@@ -10,11 +10,11 @@ function MarkdownPage({ content }) {
             if (href && href.startsWith('/')) {
               return <Link to={href}>{children}</Link>
             }
-            return {
-              <a href={href} target="blank" rel="noopener noreferrer">
+            return (
+              <a href={href} target="_blank" rel="noopener noreferrer">
               {children}
             </a> 
-            }
+            )
         },
           code: ({ children }) => (
             <code style={{
