@@ -73,9 +73,15 @@ function Navbar() {
                 to="/projects/fortune"
                 className="drawer-link"
                 onClick={handleLinkClick}
-                style={{ fontSize: '16px' }}
+                style={{
+                  fontSize: '16px',
+                display: 'block',
+                padding: '8px 12px',
+                borderRadius: '6px',
+                transition: 'background 0.2s'
+                }}
               >
-                🎡 Fortune
+                🔮 Fortune
               </Link>
             </div>
           )}
