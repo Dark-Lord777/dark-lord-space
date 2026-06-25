@@ -1,17 +1,21 @@
 import ReactMarkdown from 'react-markdown'
+import { Link } from 'react-router-dom'
 
 function MarkdownPage({ content }) {
   return (
     <div className="container">
       <ReactMarkdown
         components={{
-          // Кастомные стили для ссылок
           a: ({ href, children }) => (
-            <a href={href} target="_blank" rel="noopener noreferrer">
+            if (href && href.startsWith('/')) {
+              return <Link to={href}>{children}</Link>
+            }
+            return {
+              <a href={href} target="blank" rel="noopener noreferrer">
               {children}
-            </a>
+            </a> 
+            }
           ),
-          // Кастомные стили для кода
           code: ({ children }) => (
             <code style={{
               background: '#1a1a2e',
