@@ -2,9 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { IoClose } from 'react-icons/io5'
+import { FaChevronDown, FaChevronRight } from 'react-icons/fa'  // ← ИКОНКИ СТРЕЛОК
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [projectsOpen, setProjectsOpen] = useState(false)  // ← СОСТОЯНИЕ ДЛЯ ПРОЕКТОВ
   const menuRef = useRef(null)
 
   useEffect(() => {
@@ -42,18 +44,53 @@ function Navbar() {
 
       {/* Выдвижное меню */}
       <div ref={menuRef} className={`drawer ${isOpen ? 'open' : ''}`}>
-        <h2 className="drawer-title">📋 Menu</h2>
+        <h2 className="drawer-title">📋 Меню</h2>
+
         <Link to="/" className="drawer-link" onClick={handleLinkClick}>
           👾 About Me
         </Link>
-        <Link to="/projects" className="drawer-link" onClick={handleLinkClick}>
-          Projects 
-        </Link>
-        <Link to="/projects/fortune" className="drawer-link" onClick={handleLinkClick}>
-         Fortune
-        </Link>
+
+        {/* Пункт "Projects" с раскрывашкой */}
+        <div>
+          <div
+            className="drawer-link drawer-parent"
+            onClick={() => setProjectsOpen(!projectsOpen)}
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              cursor: 'pointer',
+            }}
+          >
+            <span>📁 Projects</span>
+            {projectsOpen ? <FaChevronDown size={14} /> : <FaChevronRight size={14} />}
+          </div>
+
+          {/* Вложенные пункты (показываются если projectsOpen = true) */}
+          {projectsOpen && (
+            <div style={{ paddingLeft: '20px', marginTop: '4px' }}>
+              <Link
+                to="/projects/fortune"
+                className="drawer-link"
+                onClick={handleLinkClick}
+                style={{ fontSize: '16px' }}
+              >
+                🎡 Fortune
+              </Link>
+              <Link
+                to="/projects"
+                className="drawer-link"
+                onClick={handleLinkClick}
+                style={{ fontSize: '16px' }}
+              >
+                📋 All Projects
+              </Link>
+            </div>
+          )}
+        </div>
+
         <Link to="/terms" className="drawer-link" onClick={handleLinkClick}>
-          📄 Terms and Conditions
+          📄 Terms
         </Link>
         <Link to="/privacy" className="drawer-link" onClick={handleLinkClick}>
           🔒 Privacy
