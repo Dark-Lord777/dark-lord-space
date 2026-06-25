@@ -28,7 +28,7 @@ function Navbar() {
     </nav>
     <nav className="mobile-nav">
     <span style={{color: '#c084fc', fontSize: '20px', fontWeight: 'bold'  }}>
-    👑 Dark Lord
+    
     </span>
     <button 
       onClick={() => setIsOpen(!isOpen)}
