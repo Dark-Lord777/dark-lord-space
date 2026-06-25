@@ -1,5 +1,6 @@
 import { HashRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar' //navigation/ also do navigation bar
+import Projects from './pages/Projects.jsx'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 import Licenses from './pages/Licenses'
@@ -12,9 +13,11 @@ function App() {
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/about" element={<About />} />
-        <Route path="/terms" element={<Terms />} />
-        <Route path="/privacy" element={<Privacy />} />
-        <Route path="/licenses" element={<Licenses />} />
+        <Routes path="/projects" element={<Projects/>} />
+        <Routes path="/projects/fortune" element={<Projects/>} />
+        <Route path="/projects/fortune/terms" element={<Terms />} />
+        <Route path="/projects/fortune/privacy" element={<Privacy />} />
+        <Route path="/projects/fortune/licenses" element={<Licenses />} />
       </Routes>
     </HashRouter>
   )
