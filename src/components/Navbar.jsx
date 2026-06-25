@@ -32,7 +32,7 @@ function Navbar() {
     👑 Dark Lord
     </span>
     <button 
-      onClick-{() => setIsOpen(!isOpen)}
+      onClick={() => setIsOpen(!isOpen)}
       style={{
       background: 'none',
       border: 'none',
