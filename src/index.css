@@ -117,3 +117,75 @@ hr {
     display: none !important;
   }
 }
+
+
+/* Navbar */
+.navbar {
+  padding: 12px 24px;
+  background-color: #1a1a2e;
+  border-bottom: 1px solid #2d1b4e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1000;
+}
+/*
+.navbar-brand {
+  color: #c084fc;
+  font-size: 20px;
+  font-weight: bold;
+}
+*/ 
+.navbar-toggle {
+  background: none;
+  border: none;
+  color: #c084fc;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+
+/* Mwnu */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 280px;
+  height: 100vh;
+  background-color: #1a1a2e;
+  border-right: 1px solid #2d1b4e;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  box-shadow: 4px 0 32px rgba(0, 0, 0, 0.6);
+}
+
+.drawer.open {
+  left: 0;
+}
+
+.drawer-title {
+  color: #c084fc;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.drawer-link {
+  color: #c084fc;
+  text-decoration: none;
+  font-size: 18px;
+}

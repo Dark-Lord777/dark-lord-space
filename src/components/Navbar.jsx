@@ -6,13 +6,37 @@ import { IoClose } from 'react-icons/io5'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const menuRef = useRef(null)
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false)
+      }
+    }
+    if (isOpen) {
+      document.addEventListener('mousedown', handleClickOutside)
+    }
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside)
+    }
+  }, [isOpen])
+
 
   const handleLinkClick = () => {
     setIsOpen(false)
   }
   return (
     <>
-  <nav className="desktop-nav">
+  <div className="navbar">
+  <button className="navbar-toggle" onClick={() => setIsOpen('isOpen')}>
+  {isOpen ? <IoClose/> : <GiHamburgerMenu/>}
+  </button>
+  </div>
+  {isOpen && <div className="overlay" onClick={() => setIsOpen(false)} />}
+
+  <div ref(menuRef) className={'drawer ${isOpen ? 'open' : ''}'}>
+        <h2 className="drawer-title">Menu</h2>
     <Link to="/" style={{ color: '#c084fc', textDecoration: 'none', fontWeight: '500'}} >
       👾 About Me 
     </Link>
