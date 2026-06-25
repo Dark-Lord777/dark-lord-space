@@ -59,7 +59,7 @@ function Navbar() {
         📜 Licenses 
       </Link>
 
-    </dix>
+    </div>
     )}
     </>
   )
