@@ -77,25 +77,17 @@ function Navbar() {
               >
                 🎡 Fortune
               </Link>
-              <Link
-                to="/projects"
-                className="drawer-link"
-                onClick={handleLinkClick}
-                style={{ fontSize: '16px' }}
-              >
-                📋 All Projects
-              </Link>
             </div>
           )}
         </div>
 
-        <Link to="/terms" className="drawer-link" onClick={handleLinkClick}>
+        <Link to="/projects/fortune/terms" className="drawer-link" onClick={handleLinkClick}>
           📄 Terms
         </Link>
-        <Link to="/privacy" className="drawer-link" onClick={handleLinkClick}>
+        <Link to="/projects/fortune/privacy" className="drawer-link" onClick={handleLinkClick}>
           🔒 Privacy
         </Link>
-        <Link to="/licenses" className="drawer-link" onClick={handleLinkClick}>
+        <Link to="/projects/fortune/licenses" className="drawer-link" onClick={handleLinkClick}>
           📜 Licenses
         </Link>
       </div>
